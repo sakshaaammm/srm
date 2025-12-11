@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 193 100% 98%;
+    --foreground: 197 50% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 197 50% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 197 50% 16%;
+
+    --primary: 197 50% 16%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 195 63% 67%;
+    --secondary-foreground: 197 50% 16%;
+
+    --muted: 197 71% 87%;
+    --muted-foreground: 197 40% 35%;
+
+    --accent: 195 64% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 197 50% 85%;
+    --input: 197 50% 85%;
+    --ring: 197 50% 16%;
+
+    --radius: 0.75rem;
+
+    /* Quiz specific colors - using HSL values */
+    --quiz-page-bg: 193 100% 98%;
+    --quiz-question-start: 197 71% 87%;
+    --quiz-question-end: 197 100% 95%;
+    --quiz-title-start: 197 50% 16%;
+    --quiz-title-end: 195 64% 55%;
+    --quiz-progress-filled: 197 50% 16%;
+    --quiz-progress-empty: 197 40% 88%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 197 50% 10%;
+    --foreground: 193 100% 98%;
+
+    --card: 197 45% 15%;
+    --card-foreground: 193 100% 98%;
+
+    --popover: 197 45% 15%;
+    --popover-foreground: 193 100% 98%;
+
+    --primary: 195 64% 55%;
+    --primary-foreground: 197 50% 10%;
+
+    --secondary: 197 40% 25%;
+    --secondary-foreground: 193 100% 98%;
+
+    --muted: 197 35% 20%;
+    --muted-foreground: 197 40% 70%;
+
+    --accent: 195 50% 35%;
+    --accent-foreground: 193 100% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 197 35% 25%;
+    --input: 197 35% 25%;
+    --ring: 195 64% 55%;
+
+    --quiz-page-bg: 197 45% 12%;
+    --quiz-question-start: 197 40% 30%;
+    --quiz-question-end: 197 35% 25%;
+    --quiz-title-start: 195 64% 70%;
+    --quiz-title-end: 195 50% 55%;
+    --quiz-progress-filled: 195 64% 55%;
+    --quiz-progress-empty: 197 35% 25%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-title {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  /* Outer background - exact Figma gradient with border */
+  .quiz-outer-bg {
+    background: linear-gradient(107.96deg, #BECFEE 0%, #71C6E2 50%, #D9F4FA 75%, #BECFEE 100%);
+    border: 1px solid #96E5FF;
+  }
+
+  /* Card outer shadow wrapper - creates the shade effect (3x wider padding) */
+  .quiz-card-outer-shadow {
+    background: linear-gradient(145deg, rgba(255,255,255,0.3) 0%, rgba(180,220,235,0.5) 100%);
+    box-shadow: 
+      0 25px 60px -12px rgba(15, 54, 63, 0.25),
+      0 12px 30px -8px rgba(15, 54, 63, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border: 1px solid rgba(150, 229, 255, 0.5);
+  }
+
+  /* Title gradient text - exact Figma specs */
+  .quiz-title-gradient {
+    background: linear-gradient(90deg, #15313D 0%, #3CABDA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Question box gradient - exact Figma specs with double border */
+  .quiz-question-gradient {
+    background: linear-gradient(89.72deg, #C6E9F7 0.09%, #E5F8FF 99.91%);
+    border: 1.5px solid #B8E5F5;
+    box-shadow: inset 0 0 0 1px #D4F0F9;
+  }
+
+  /* Navigation button double border */
+  .quiz-nav-button {
+    border: 1.5px solid #C5E8F4;
+    box-shadow: inset 0 0 0 1px #D9F2F9;
+  }
+
+  /* Answer option double border */
+  .quiz-option-border {
+    border: 1px solid #D4EEF8;
+    box-shadow: inset 0 0 0 1px #E8F7FB;
+  }
+
+  /* Main card double border */
+  .quiz-card-border {
+    border: 1.5px solid #C5E8F4;
+    box-shadow: 0 0 0 1px #D9F2F9, 0 4px 24px -4px rgba(21, 49, 61, 0.08);
+  }
+
+  /* Page background */
+  .quiz-page-bg {
+    background: #F4FDFF;
+  }
+
+  .quiz-card-shadow {
+    box-shadow: 0 4px 24px -4px rgba(21, 49, 61, 0.08);
+  }
+}
